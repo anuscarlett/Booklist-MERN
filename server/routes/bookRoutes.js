@@ -21,7 +21,6 @@ router.post('/', async (req, res) => {
         };
         //creating by using model "Book"
         const book = await Book.create(newBook)
-
         return res.status(200).send(book)
     } catch (err) {
         console.log(err)
