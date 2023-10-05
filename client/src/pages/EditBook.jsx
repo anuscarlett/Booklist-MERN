@@ -38,10 +38,7 @@ const EditBook = () => {
     setLoading(true);
     axios
       //its put for update
-      .put(
-        `https://book-haul-anushas-projects-15f39087.vercel.app/books/${id}`,
-        data
-      )
+      .put(`https://book-haul-anushas-projects-15f39087.vercel.app/books/${id}`)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book edited succesfully", { variant: "success" });
