@@ -34,10 +34,10 @@ async function startServer() {
         await mongoose.connect(process.env.MONGO_DB_URL);
         console.log('MongoDB connected');
 
-        // // Start the Express server
-        // app.listen(process.env.PORT, () => {
-        //     console.log(`App is listening on port ${process.env.PORT}`);
-        // });
+        // Start the Express server
+        app.listen(process.env.PORT, () => {
+            console.log(`App is listening on port ${process.env.PORT}`);
+        });
     } catch (err) {
         console.error('Error connecting to MongoDB:', err);
     }
