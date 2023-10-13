@@ -16,7 +16,7 @@ const EditBook = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`https://book-haul.vercel.app/books/${id}`)
       .then((res) => {
         setTitle(res.data.title);
         setAuthor(res.data.author);
@@ -38,7 +38,7 @@ const EditBook = () => {
     setLoading(true);
     axios
       //its put for update
-      .put(`https://book-haul.vercel.app/books/${id}`)
+      .put(`https://book-haul.vercel.app/books/${id}`, data)
       .then(() => {
         setLoading(false);
         enqueueSnackbar("Book edited succesfully", { variant: "success" });
@@ -46,8 +46,9 @@ const EditBook = () => {
       })
       .catch((error) => {
         setLoading(false);
-        // alert("an error occured, check the details");
-        enqueueSnackbar("Error", { variant: "error" });
+        enqueueSnackbar("Error", {
+          variant: "error",
+        });
         console.log(error);
       });
   };
@@ -67,7 +68,7 @@ const EditBook = () => {
           />
         </div>
         <div className="my-4">
-          <label className="text-xl mr-4text-gray-500">Author</label>
+          <label className="text-xl mr-4 text-gray-500">Author</label>
           <input
             type="text"
             value={author}
